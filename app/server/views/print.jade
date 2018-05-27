@@ -1,0 +1,33 @@
+
+extends layout
+
+block content
+
+	div.container(style='margin:20px')
+		table.table.table-bordered.table-striped
+			thead
+				tr
+					th(style='width:60px') Sr. No
+					th(style='width:180px') Name
+					th(style='width:200px') Country
+					th(style='width:180px') Username
+					th Account Created
+			tbody
+			- for (var i = 0; i < accts.length; i++)
+				tr
+					td= i+1
+					td= accts[i].name
+					td= accts[i].country
+					td= accts[i].user
+					td= accts[i].date
+			.form-buttons
+				.navbar-btn#back-btn3.btn.btn-default
+						| Back
+
+
+block scripts
+	script(src='/vendor/jquery-2.2.3.min.js')
+	script(src='/vendor/jquery.form.min.js')
+	script(src='/vendor/bootstrap.min.js')
+	script(src='/js/views/home.js')
+	script(src='/js/controllers/homeController.js')

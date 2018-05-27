@@ -1,0 +1,33 @@
+
+extends layout
+
+block content
+
+	div.container(style='margin:20px')
+		table.table.table-bordered.table-striped
+			thead
+			.form-buttons
+			- if (files.length > 0){
+				.navbar-btn#delete-files-btn.btn.btn-default
+						| Delete All Files
+			-}
+				tr
+					th(style='width:60px') Sr. No
+					th(style='width:280px, height:100px') File Name
+					th(style='width:80') Delete?
+			tbody
+			- for (var i = 0; i < files.length; i++)
+				tr
+					td= i+1
+					td= files[i]
+					td: button(onClick="onDelete('" + files[i] + "')") Delete
+				
+
+block scripts
+	script(src='/vendor/jquery-2.2.3.min.js')
+	script(src='/vendor/jquery.form.min.js')
+	script(src='/vendor/bootstrap.min.js')
+	script(src='/js/views/home.js')
+	script(src='./server/modules/common.js')
+	script(src='/js/controllers/homeController.js')
+	

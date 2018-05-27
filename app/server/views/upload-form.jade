@@ -1,0 +1,40 @@
+extends layout
+
+block content
+	
+
+
+block scripts
+	script(src='/vendor/jquery-2.2.3.min.js')
+	script(src='/vendor/jquery.form.min.js')
+	script(src='/vendor/bootstrap.min.js')
+	script(src='/js/views/home.js')
+	script(src='/js/controllers/homeController.js')
+	script(src='/js/controllers/fileUploadController.js')
+
+
+	#account-form-container.center-vertical
+		form.well(method="post",enctype="multipart/form-data",action="/fileUpload")#upload-form
+			h5 File Upload
+		
+			//.form-group
+			//	label Title
+				//input.form-control(type="text",name="title",placeholder="title")
+			.form-group
+				label Browse file
+				input.form-control(type="file",name="upl")
+			.form-buttons
+				button(type='button')#back-btn3.btn.btn-default
+					| Back
+				button(type='submit').btn.btn-primary
+					| Submit
+				button(type='button')#cancel-btn.btn.btn-default
+					| Cancel
+				utton(type='button')#show-btn.btn.btn-default
+					| Show all files
+
+			.clearfix
+	
+	
+
+include modals/form-errors
